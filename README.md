@@ -1,2 +1,2 @@
-# GAGN_lokaverkefni
-Einn í hóp##
+﻿# GAGN_lokaverkefni
+## Einn í hóp ##
