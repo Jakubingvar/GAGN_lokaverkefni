@@ -1,6 +1,7 @@
-select notandi.nafn, notandalisti.heiti, listalog.rod, Lag.heiti, lag.lengd
+select notandi.nafn, notandalisti.heiti
 from 1307993459_lokaverkefni.notandi
-inner join notandalisti on notandi.notandi_ID = notandalisti.notandiID
-inner join listalog on notandalisti.listi_ID = listalog.listiID
-inner join lag on listalog.lagID = lag.lag_ID
-order by notandalisti.heiti, listalog.rod;
+inner join notandalisti on notandi.notandi_ID = notandalisti.notandiID;
+
+select flytjandi.nafn, lag.heiti
+from 1307993459_lokaverkefni.flytjandi
+inner join lag on lag.lag_ID =flytjandi.flytjandi_ID;

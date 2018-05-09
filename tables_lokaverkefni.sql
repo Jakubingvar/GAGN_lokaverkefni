@@ -30,33 +30,26 @@ heimilisfang VARCHAR(65),
 netfang VARCHAR(125)
 );
 
-CREATE TABLE  notandalisti
-(listi_ID INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-heiti VARCHAR(75),
-stofnadur DATE,
-notandiID INT(11),
-CONSTRAINT notandi_FK FOREIGN KEY (notandiID) REFERENCES notandi(notandi_ID)
-);
-
 CREATE TABLE lag
 (lag_ID INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
 heiti VARCHAR(55),
 lengd DECIMAL(5,2),
 texti TEXT,
 utgafudagur DATE,
-tegundID INT(11),
 utgefandiID INT(11),
 flytjandiID INT(11),
-CONSTRAINT tegund_FK FOREIGN KEY (tegundID) REFERENCES tegund(tegund_ID),
 CONSTRAINT utgefandi_FK FOREIGN KEY (utgefandiID) REFERENCES utgefandi(utgefandi_ID),
 CONSTRAINT flytjandi_FK FOREIGN KEY (flytjandiID) REFERENCES flytjandi(flytjandi_ID)
 );
 
-CREATE TABLE  listalog
-(listi_lag_PK INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-listiID INT(11),
-lagID INT(11),
-rod INT(11),
-CONSTRAINT listi_FK FOREIGN KEY (listiID) REFERENCES notandalisti(listi_ID),
-CONSTRAINT lag_FK FOREIGN KEY (lagID) REFERENCES lag(lag_ID)
+CREATE TABLE  notandalisti
+(listi_ID INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+heiti VARCHAR(75),
+stofnadur DATE,
+notandiID INT(11),
+lag1 INT(11),
+lag2 INT(11),
+CONSTRAINT notandi_FK FOREIGN KEY (notandiID) REFERENCES notandi(notandi_ID),
+CONSTRAINT lag1_FK FOREIGN KEY (lag1) REFERENCES lag(lag_ID),
+CONSTRAINT lag2_FK FOREIGN KEY (lag2) REFERENCES lag(lag_ID)
 );
